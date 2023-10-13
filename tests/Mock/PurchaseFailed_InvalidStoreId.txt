@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Date: Wed, 11 Oct 2023 02:34:58 GMT
+Content-type: text/html; charset=utf-8
+
+{"responseCode": "0006", "responseDesc": "INVALID STORE ID"}

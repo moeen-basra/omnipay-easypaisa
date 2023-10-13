@@ -1,0 +1,54 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Omnipay\Easypaisa\Tests;
+
+final class Helper
+{
+    public static function getOptions(array $options = []): array
+    {
+        return [
+            'storeId' => 'store123',
+            'username' => 'username',
+            'password' => 'password',
+            'accountNum' => 'account123',
+            ...$options,
+        ];
+    }
+
+    public static function getParameters(array $parameters = []): array
+    {
+        return [
+            'transactionId' => '6433cef9cdc87',
+            'amount' => '20',
+            'currency' => 'PKR',
+            'paymentMethod' => 'MA',
+            'emailAddress' => 'test@test.com',
+            'mobileNumber' => '923211234567',
+            'tokenExpiry' => (30 * 60), // 30 minutes
+            'extra' => [
+                'field_1' => 'abcdef'
+            ],
+            ...$parameters
+        ];
+    }
+
+    public static function getPurchaseParameters(array $parameters = []): array
+    {
+        return [
+            ...self::getOptions(),
+            ...self::getParameters(),
+            ...$parameters
+        ];
+    }
+
+    public static function getFetchParameters(array $parameters = []): array
+    {
+        return [
+            ...self::getOptions(),
+            'transactionId' => self::getParameters()['transactionId'],
+            ...$parameters
+        ];
+    }
+}

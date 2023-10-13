@@ -1,0 +1,54 @@
+{
+  "name": "moeen-basra/omnipay-easypaisa",
+  "description": "Easypaisa driver for the Omnipay PHP payment processing library",
+  "type": "library",
+  "keywords": [
+    "easypaisa",
+    "telenor",
+    "telenor-easypaisa",
+    "gateway",
+    "merchant",
+    "omnipay",
+    "pay",
+    "payment"
+  ],
+  "homepage": "https://github.com/moeen-basra/omnipay-easypaisa",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Moeen Basra",
+      "email": "m.basra@live.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\Easypaisa\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Omnipay\\Easypaisa\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "omnipay/common": "^3.2",
+    "league/omnipay": "^3.2",
+    "guzzlehttp/guzzle": "^7.8"
+  },
+  "require-dev": {
+    "omnipay/tests": "^3|^4",
+    "squizlabs/php_codesniffer": "^3",
+    "http-interop/http-factory-guzzle": "^1.2"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.0.x-dev"
+    }
+  },
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  }
+}

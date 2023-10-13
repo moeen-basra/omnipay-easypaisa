@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Date: Wed, 11 Oct 2023 02:34:58 GMT
+Content-type: text/html; charset=utf-8
+
+{"orderId": "6433cef9cdc87", "storeId": "store123", "optional1": "abcdef", "responseCode": "0000", "responseDesc": "SUCCESS", "transactionId": "21154867845", "transactionDateTime": "10/04/2023 01:55 PM"}
