@@ -72,7 +72,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                     'The language "%s" is invalid, must be one of %s',
                     $value,
                     implode(
-                        ', ', $this->allowedLanguages
+                        ', ',
+                        $this->allowedLanguages
                     )
                 )
             );
@@ -93,7 +94,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                     'The paymentMethod "%s" is invalid, must be one of %s',
                     $value,
                     implode(
-                        ', ', $this->allowedPaymentMethods
+                        ', ',
+                        $this->allowedPaymentMethods
                     )
                 )
             );
@@ -109,7 +111,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                     'The currency "%s" is invalid, must be one of %s',
                     $value,
                     implode(
-                        ', ', $this->allowedCurrencies
+                        ', ',
+                        $this->allowedCurrencies
                     )
                 )
             );
@@ -172,7 +175,6 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $data = json_decode($response->getBody()->getContents(), true);
 
             return $this->createResponse($data);
-
         } catch (ClientException $exception) {
             throw new InvalidResponseException($exception->getMessage(), 400, $exception);
         }

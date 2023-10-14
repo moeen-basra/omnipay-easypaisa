@@ -48,6 +48,7 @@ final class Helper
         return [
             ...self::getOptions(),
             'transactionId' => self::getParameters()['transactionId'],
+            'transactionReference' => '21154867845',
             ...$parameters
         ];
     }

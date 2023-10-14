@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Omnipay\Easypaisa\Tests;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Message\NotificationInterface;
 use Omnipay\Easypaisa\Gateway;
 use Omnipay\Easypaisa\Message\FetchTransactionRequest;
+use Omnipay\Easypaisa\Message\FetchTransactionResponse;
 use Omnipay\Easypaisa\Message\PurchaseRequest;
 use Omnipay\Tests\TestCase;
 
@@ -110,12 +112,12 @@ class GatewayTest extends TestCase
         $this->assertSame('INVALID CREDENTIALS', $response->getMessage());
     }
 
-    public function test_gateway_allow_inquiry_request(): void
+    public function test_gateway_fetch_transaction_is_allowed(): void
     {
         $this->assertTrue($this->gateway->supportsFetchTransaction());
     }
 
-    public function test_fetch_request_construct_valid(): void
+    public function test_gateway_fetch_transaction_construct_valid_request(): void
     {
         $request = $this->gateway->fetchTransaction(Helper::getFetchParameters());
 
@@ -123,10 +125,53 @@ class GatewayTest extends TestCase
         $this->assertArrayHasKey('orderId', $request->getData());
     }
 
-    public function test_fetch_success(): void
+    public function test_gateway_fetch_transaction_success_with_status_failed(): void
     {
-        $this->setMockHttpResponse('FetchSuccess.txt');
-        $response = $this->gateway->purchase($this->parameters)->send();
+        $this->setMockHttpResponse('FetchTransaction_Failed.txt');
+
+        $parameters = Helper::getFetchParameters();
+
+        $response = $this->gateway->fetchTransaction($parameters)->send();
+
+        $this->assertInstanceOf(FetchTransactionResponse::class, $response);
+        $this->assertInstanceOf(NotificationInterface::class, $response);
+
+        $this->assertSame(
+            NotificationInterface::STATUS_FAILED,
+            $response->getTransactionStatus()
+        );
+
+        $this->assertSame(
+            $parameters['transactionReference'],
+            $response->getTransactionReference()
+        );
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertSame('0000', $response->getCode());
+        $this->assertSame('SUCCESS', $response->getMessage());
+    }
+
+
+    public function test_gateway_fetch_transaction_success_with_status_paid(): void
+    {
+        $this->setMockHttpResponse('FetchTransaction_Success.txt');
+
+        $parameters = Helper::getFetchParameters();
+
+        $response = $this->gateway->fetchTransaction($parameters)->send();
+
+        $this->assertInstanceOf(FetchTransactionResponse::class, $response);
+        $this->assertInstanceOf(NotificationInterface::class, $response);
+
+        $this->assertSame(
+            NotificationInterface::STATUS_COMPLETED,
+            $response->getTransactionStatus()
+        );
+
+        $this->assertSame(
+            $parameters['transactionReference'],
+            $response->getTransactionReference()
+        );
 
         $this->assertTrue($response->isSuccessful());
         $this->assertSame('0000', $response->getCode());

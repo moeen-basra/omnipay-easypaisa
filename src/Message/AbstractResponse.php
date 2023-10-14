@@ -2,7 +2,6 @@
 
 namespace Omnipay\Easypaisa\Message;
 
-
 abstract class AbstractResponse extends \Omnipay\Common\Message\AbstractResponse
 {
     protected array $responseCodes = [

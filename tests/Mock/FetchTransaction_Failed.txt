@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Date: Wed, 11 Oct 2023 02:34:58 GMT
+Content-type: text/html; charset=utf-8
+
+{"msisdn":"03211234567","orderId":"6433cef9cdc87","storeId":"store123","errorCode":"AUTHORIZATION_SENDER_ACCOUNT_NOT_ACTIVE","storeName":"storeName","accountNum":"account123","errorReason":"Customer's or merchant's Easypaisa Account is not Active","paymentMode":"MA","responseCode":"0000","responseDesc":"SUCCESS","transactionAmount":2000,"transactionStatus":"FAILED","transactionDateTime":"10/04/2023 01:55 PM"}

@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Date: Wed, 11 Oct 2023 02:34:58 GMT
+Content-type: text/html; charset=utf-8
+
+{"msisdn":"03211234567","orderId":"651bb59297ca0","storeId":"store123","storeName":"storeName","accountNum":"account123","paymentMode":"MA","responseCode":"0000","responseDesc":"SUCCESS","settlementStatus":"FAILED","transactionAmount":3000,"transactionStatus":"PAID","transactionDateTime":"03/10/2023 11:32 AM"}
