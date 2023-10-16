@@ -24,7 +24,6 @@ class GatewayTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
 
         $this->options = Helper::getOptions();
