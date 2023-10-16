@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bbeb722e5646fcc10b9295c3ef67c8b",
+    "content-hash": "52def0fc5502c285619dd66207899ffe",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -385,69 +385,6 @@
                 }
             ],
             "time": "2023-04-17T16:00:37+00:00"
-        },
-        {
-            "name": "league/omnipay",
-            "version": "v3.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/omnipay.git",
-                "reference": "38f66a0cc043ed51d6edf7956d6439a2f263501f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay/zipball/38f66a0cc043ed51d6edf7956d6439a2f263501f",
-                "reference": "38f66a0cc043ed51d6edf7956d6439a2f263501f",
-                "shasum": ""
-            },
-            "require": {
-                "omnipay/common": "^3.1",
-                "php": "^7.2|^8.0",
-                "php-http/discovery": "^1.14",
-                "php-http/guzzle7-adapter": "^1"
-            },
-            "require-dev": {
-                "omnipay/tests": "^3|^4"
-            },
-            "type": "metapackage",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adrian Macneil",
-                    "email": "adrian@adrianmacneil.com"
-                },
-                {
-                    "name": "Barry vd. Heuvel",
-                    "email": "barryvdh@gmail.com"
-                }
-            ],
-            "description": "Omnipay payment processing library",
-            "homepage": "https://omnipay.thephpleague.com/",
-            "keywords": [
-                "checkout",
-                "creditcard",
-                "omnipay",
-                "payment"
-            ],
-            "support": {
-                "issues": "https://github.com/thephpleague/omnipay/issues",
-                "source": "https://github.com/thephpleague/omnipay/tree/v3.2.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/barryvdh",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-06-05T11:34:12+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -3978,7 +3915,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
