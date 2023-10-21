@@ -19,6 +19,8 @@ final class Helper
 
     public static function getParameters(array $parameters = []): array
     {
+        $timezone = new \DateTimeZone('Asia/Karachi');
+        $expiry = new \DateTime('now + 30 min', $timezone);
         return [
             'transactionId' => '6433cef9cdc87',
             'amount' => '20',
@@ -26,7 +28,7 @@ final class Helper
             'paymentMethod' => 'MA',
             'emailAddress' => 'test@test.com',
             'mobileNumber' => '923211234567',
-            'tokenExpiry' => (30 * 60), // 30 minutes
+            'tokenExpiry' => $expiry,
             'extra' => [
                 'field_1' => 'abcdef'
             ],

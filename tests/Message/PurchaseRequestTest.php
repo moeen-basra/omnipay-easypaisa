@@ -45,20 +45,6 @@ final class PurchaseRequestTest extends TestCase
         );
     }
 
-    public function test_it_set_valid_token_expiry(): void
-    {
-        $this->request->initialize($this->parameters);
-
-        $seconds = $this->parameters['tokenExpiry'];
-
-        $tz = new \DateTimeZone('Asia/Karachi');
-        $datetime = new \DateTime("now + $seconds seconds", $tz);
-
-        $time = $datetime->format('Ymd His');
-
-        $this->assertStringMatchesFormat($time, $this->request->getTokenExpiry());
-    }
-
     public function test_it_has_valid_data(): void
     {
         $this->request->initialize($this->parameters);
@@ -70,7 +56,7 @@ final class PurchaseRequestTest extends TestCase
             'transactionAmount' => '20.00',
             'transactionType' => 'MA',
             'emailAddress' => 'test@test.com',
-            'tokenExpiry' => $this->request->getTokenExpiry(),
+            'tokenExpiry' => $this->parameters['tokenExpiry']->format('Ymd His'),
             'optional1' => 'abcdef',
             'mobileAccountNo' => '03211234567',
         ], $this->request->getData());

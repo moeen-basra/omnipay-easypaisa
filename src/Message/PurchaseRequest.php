@@ -28,15 +28,12 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('emailAddress');
     }
 
-    public function setTokenExpiry(int $value): static
+    public function setTokenExpiry(DateTime $dateTime): static
     {
-        $timezone = new \DateTimeZone('Asia/Karachi');
-        $datetime = new DateTime("now + $value seconds", $timezone);
-
-        return $this->setParameter('tokenExpiry', $datetime->format('Ymd His'));
+        return $this->setParameter('tokenExpiry', $dateTime);
     }
 
-    public function getTokenExpiry(): string
+    public function getTokenExpiry(): DateTime
     {
         return $this->getParameter('tokenExpiry');
     }
@@ -53,7 +50,7 @@ class PurchaseRequest extends AbstractRequest
             'transactionAmount' => $this->getAmount(),
             'transactionType' => $this->getPaymentMethod(),
             'emailAddress' => $this->getEmailAddress(),
-            'tokenExpiry' => $this->getTokenExpiry(),
+            'tokenExpiry' => $this->getTokenExpiry()->format('Ymd His'),
             'optional1' => $this->getExtra('field_1'),
             'optional2' => $this->getExtra('field_2'),
             'optional3' => $this->getExtra('field_3'),
